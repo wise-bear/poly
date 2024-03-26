@@ -214,6 +214,7 @@ app.get('/', (req, res) => {
     <div class="topnav">
     <a class="active" href="/">Главная</a>
     <a href="/create/">Создать тур</a>
+    <a href="/create/admin-panel">Админ панель</a>
     <a href="https://t.me/erv_yar76">Обратная связь</a>
     </div>
     <p style="text-align: center;"><img src='./img/logo3.png' style="width: 200px"></p>
