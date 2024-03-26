@@ -18,7 +18,7 @@ let settings = {
 }
 
 app.use("/tours", express.static(UPLOAD_PATH))
-app.use("/tour/create/as/root/", express.static(PATH_STATIC));
+app.use("/create/", express.static(PATH_STATIC));
 app.use("/", express.static(PATH_STATIC));
 app.use(bodyParser.json());
 
@@ -39,7 +39,7 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-app.get('/tour/create/as/root/', (req, res) => {
+app.get('/create/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'tour.html'));
 });
 
@@ -192,7 +192,7 @@ app.get('/', (req, res) => {
 
     <div class="topnav">
     <a class="active" href="/">Главная</a>
-    <a href="/tour/create/as/root/admin/panel">Создать тур</a>
+    <a href="/create/admin-panel">Создать тур</a>
     <a href="https://t.me/erv_yar76">Обратная связь</a>
   </div>
   <br><br><br>
@@ -245,7 +245,7 @@ app.get('/', (req, res) => {
   });
 })
 
-app.get('/tour/create/as/root/admin/panel', (req, res) => {
+app.get('/create/admin-panel', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'adminpanel.html'));
 });
 
