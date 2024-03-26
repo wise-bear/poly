@@ -321,8 +321,8 @@ app.post('/api/delete', (req, res) => {
   let data = req.body;
   let prjnm = data.projectName;
 
-    rimraf(path.join(UPLOAD_PATH, prjnm))
-    res.sendStatus(200);
+  rimraf(path.join(UPLOAD_PATH, prjnm))
+  res.sendStatus(200);
 
 })
 
