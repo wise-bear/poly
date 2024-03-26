@@ -161,11 +161,41 @@ app.get('/', (req, res) => {
         font-size: 11px;
       }
     }
+
+    
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #1C2F5C;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: #1C2F5C;
+  color: white;
+}
   </style>
     </head>
     <body>
-    <p style="text-align: center;"><img src='./img/cord.jpg' style="width: 200px"></p>
 
+    <div class="topnav">
+    <a class="active" href="/">Главная</a>
+    <a href="/tour/create/as/root/admin/panel">Создать тур</a>
+    <a href="https://t.me/erv_yar76">Обратная связь</a>
+  </div>
+  <br><br><br>
       <div class="slideshow-container">
         ${slides}
         <a class="prev" onclick="plusSlides(-1)">❮</a>
