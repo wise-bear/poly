@@ -12,11 +12,6 @@ const PATH_STATIC = path.join(__dirname, 'public');
 const UPLOAD_PATH = path.join(__dirname, 'uploads');
 const PORT = 3000;
 
-
-let settings = {
-  "rootPassword": "qwerty"
-}
-
 app.use("/tours", express.static(UPLOAD_PATH))
 app.use("/tour/create/as/root/", express.static(PATH_STATIC));
 app.use("/", express.static(PATH_STATIC));
@@ -277,15 +272,13 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api/delete', (req, res) => {
+
   let data = req.body;
   let prjnm = data.projectName;
-  let pswrd = data.password;
-  if (pswrd != settings.rootPassword) {
-    res.sendStatus(403);
-  } else {
+
     rimraf(path.join(UPLOAD_PATH, prjnm))
     res.sendStatus(200);
-  }
+
 })
 
 app.post('/upload', (req, res) => {
