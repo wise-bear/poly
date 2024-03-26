@@ -60,29 +60,31 @@ app.get('/', (req, res) => {
     * {
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: Verdana, sans-serif; 
       margin: 0;
-      background-color: white;
+      background-color: #0b1118;
+      color: white;
+      overflow-x: hidden;
     }
-
+    
     .slides {
       display: none;
     }
-
+    
     img {
       vertical-align: middle;
-      width: 300px;
+      max-width: 1000px;
     }
-
+    
     .slideshow-container {
       max-width: 1000px;
       position: relative;
       margin: auto;
       border-radius: 10px;
     }
-
+    
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -97,16 +99,16 @@ app.get('/', (req, res) => {
       border-radius: 0 3px 3px 0;
       user-select: none;
     }
-
+    
     .next {
       right: 0;
       border-radius: 3px 0 0 3px;
     }
-
+    
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
     }
-
+    
     .text {
       color: #f2f2f2;
       font-size: 15px;
@@ -114,10 +116,10 @@ app.get('/', (req, res) => {
       position: absolute;
       bottom: 8px;
       width: 100%;
-      text-align: center;
+      text-align: center; /* Центрирование текста */
       font-size: 30px;
     }
-
+    
     .numbertext {
       color: #f2f2f2;
       font-size: 12px;
@@ -125,7 +127,7 @@ app.get('/', (req, res) => {
       position: absolute;
       top: 0;
     }
-
+    
     .dot {
       cursor: pointer;
       height: 15px;
@@ -136,61 +138,86 @@ app.get('/', (req, res) => {
       display: inline-block;
       transition: background-color 0.6s ease;
     }
-
+    
     .active, .dot:hover {
       background-color: #717171;
     }
-
+    
     .fade {
       animation-name: fade;
       animation-duration: 1.5s;
     }
-
-    @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-    }
-
+    
     @media only screen and (max-width: 300px) {
       .prev, .next,.text {
         font-size: 11px;
       }
     }
-
     
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #1C2F5C;
-  color: white;
-}
-
-.topnav a.active {
-  background-color: #1C2F5C;
-  color: white;
-}
-  </style>
+    
+    .topnav {
+    overflow: hidden;
+    background-color: #333;
+    }
+    
+    .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    
+    .topnav a:hover {
+    background-color: #1C2F5C;
+    color: white;
+    }
+    
+    .topnav a.active {
+    background-color: #1C2F5C;
+    color: white;
+    }
+    
+    h1{
+        color: white;
+        z-index: 100;
+    }
+    
+    p{
+        z-index: 100;
+    }
+    
+    button{
+        background-color: #5a6886;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 140px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #6d80a8;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    </style>
     </head>
     <body>
-
+    
     <div class="topnav">
     <a class="active" href="/">Главная</a>
-    <a href="/create/admin-panel">Создать тур</a>
+    <a href="/create/">Создать тур</a>
     <a href="https://t.me/erv_yar76">Обратная связь</a>
-  </div>
-  <br><br><br>
+    </div>
+    <p style="text-align: center;"><img src='./img/logo3.png' style="width: 200px"></p>
+    
       <div class="slideshow-container">
         ${slides}
         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -199,41 +226,59 @@ app.get('/', (req, res) => {
       <div style="text-align:center">
         ${files.map((_, index) => `<span class="dot" onclick="currentSlide(${index + 1})"></span>`).join('')}
       </div>
-
-      <script>
-
-      let slideIndex = 1;
-      showSlides(slideIndex);
-  
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-  
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-  
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-      }
-  
-
-    </script>
+      <br><br>
+    <hr>
+      <div class="why__us" style="width: 100%; margin-left: 2%;">
+      <h1 style="text-align: center;">Почему наш проект?</h1>
+      <p style="width: 60%; margin: auto;">Наш проект представляет собой нестандартный подход к созданию туров 360° для бизнеса, который значительно снижает издержки. Традиционное создание таких панорам обычно требует значительных финансовых затрат (например найм команды разработчиков для создания платформы), но наш метод меняет эту динамику, делая процесс более доступным
+      и
+      экономически эффективным.</p>
+      <br><br>
+    
+      <h1 style="text-align: center;">Зачем и для кого этот проект?</h1>
+        <p style="width: 65%; margin: auto;">Наш продукт представляет собой идеальное решение для различных отраслей бизнеса, включая арендный бизнес и компании, занимающиеся недвижимостью. В сфере арендного бизнеса туры 360° позволят потенциальным клиентам более детально ознакомиться с объектами аренды, увеличивая вероятность успешной сделки. Для бизнесов, специализирующихся на недвижимости, использование нашего продукта обеспечит эффективный способ демонстрации жилых и коммерческих объектов, привлекая больше заинтересованных покупателей</p>
+    <br><br><br><br>
+    
+      </div>
       
+      </div><p style="text-align: center;"><a href="/create"><button>Поехали!</button></a></p>
+    
+    
+      <script>
+      
+        let slideIndex = 1;
+        showSlides(slideIndex);
+      
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+      
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+      
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("slides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+      
+      
+      </script>
+        
       </body>
-      </html>`;
+      </html>
+    `;
 
     res.send(html);
 
